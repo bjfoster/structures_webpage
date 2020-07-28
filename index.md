@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-
 <html>
-    <head>
-
-    </head>
     <body>
-        Hello World!
-
-        <a href = "lecture1.html">Lecture 1</a>
-        <a href = "lecture2.html">Lecture 2</a>
+        <h3><a href = "lecture1.html">To the website...</a></h3>
     </body>
 </html>
