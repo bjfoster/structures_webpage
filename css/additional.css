@@ -68,7 +68,7 @@
 
   #sidebar.active {
       margin-left: -250px;
-      transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
+      /*transform: rotateY(100deg);*/ /* Rotate sidebar vertically by 100 degrees. */
   }
 
   #sidebar .sidebar-header {
