@@ -11,97 +11,119 @@
 
     <!-- Additional Stylings-->
     <link rel="stylesheet" href="../css/additional.css">
-    <title>Lecture 3</title>
 
+    <title>Lecture 3</title>
     
 
   </head>
   <body>
 
+    <div class="wrapper">
     
+      <!-- Sidebar -->
+      <nav id="sidebar" class="bg-dark">
+        <div class="sidebar-header bg-dark">
+            <h4><a href="index.html">AERO95009 Structures 2</a></h4>
+        </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="index.html">AERO95009 Structures 2</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
+          <ul class="list-unstyled components">
 
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Overall Structural Analysis</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="lecture1.html">Lecture 1 <small class="text-muted">Stiffness Method</small></a>
-            <a class="dropdown-item" href="lecture2.html">Lecture 2 <small class="text-muted">Generic Bar Element</small></a>
-            <a class="dropdown-item" href="lecture3.html">Lecture 3 <small class="text-muted">Flexibility Method</small></a>
-            <a class="dropdown-item" href="lecture4.html">Lecture 4 <small class="text-muted">Flexibility Method for Indeterminate Structures</small></a>
-            <a class="dropdown-item" href="lecture5.html">Lecture 5 <small class="text-muted">Flexibility Method for Pin-jointed Frameworks</small></a>
-          </div>
-        </li>
+            <li class="active">
+              <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Overall Structural Analysis</a>
+              <ul class="collapse list-unstyled show" id="homeSubmenu1">
+                <li>
+                  <a href="lecture1.html">Lecture 1 <small class="text-muted">Stiffness Method</small></a>
+                  <a href="lecture2.html">Lecture 2 <small class="text-muted">Generic Bar Element</small></a>
+                  <a href="lecture3.html">Lecture 3 <small class="text-muted">Flexibility Method</small></a>
+                  <a href="lecture4.html">Lecture 4 <small class="text-muted">Flexibility Method for Indeterminate Structures</small></a>
+                  <a href="lecture5.html">Lecture 5 <small class="text-muted">Flexibility Method for Pin-jointed Frameworks</small></a>
+                </li>
+              </ul>
+            </li>
+            
+            <li>
+              <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Structural Dynamics</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu2">
+                <li>
+                  <a href="lecture6.html">Lecture 6 <small class="text-muted">Equations of Motion and Free Vibrations in 1 DOF</small></a>
+                  <a href="lecture7.html">Lecture 7 <small class="text-muted">Free Vibrations in n DOF Problems</small></a>
+                  <a href="lecture8.html">Lecture 8 <small class="text-muted">Modal Analysis</small></a>
+                  <a href="lecture9.html">Lecture 9 <small class="text-muted">Periodic Loading in n DOF Problems</small></a>
+                  <a href="lecture10.html">Lecture 10 <small class="text-muted">Transient Loading in n DOF Problems</small></a>
+                  <a href="lecture11.html">Lecture 11 <small class="text-muted">Vibrations of Continuous Beams</small></a>
+                  <div class="dropdown-divider"></div>
+                  <a href="tutorial1.html">Tutorial Q1</a>
+                  <a href="tutorial2.html">Tutorial Q2</a>
+                  <a href="tutorial3.html">Tutorial Q3</a>
+                  <a href="tutorial5.html">Tutorial Q5</a>
+                    </li>
+              </ul>
+            </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Structural Dynamics</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown02">
-            <a class="dropdown-item" href="lecture6.html">Lecture 6 <small class="text-muted">Equations of Motion and Free Vibrations in 1 DOF</small></a>
-            <a class="dropdown-item" href="lecture7.html">Lecture 7 <small class="text-muted">Free Vibrations in n DOF Problems</small></a>
-            <a class="dropdown-item" href="lecture8.html">Lecture 8 <small class="text-muted">Modal Analysis</small></a>
-            <a class="dropdown-item" href="lecture9.html">Lecture 9 <small class="text-muted">Periodic Loading in n DOF Problems</small></a>
-            <a class="dropdown-item" href="lecture10.html">Lecture 10 <small class="text-muted">Transient Loading in n DOF Problems</small></a>
-            <a class="dropdown-item" href="lecture11.html">Lecture 11 <small class="text-muted">Vibrations of Continuous Beams</small></a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="tutorial1.html">Tutorial Q1</a>
-            <a class="dropdown-item" href="tutorial2.html">Tutorial Q2</a>
-            <a class="dropdown-item" href="tutorial3.html">Tutorial Q3</a>
-            <a class="dropdown-item" href="tutorial5.html">Tutorial Q5</a>
-          </div>
-        </li>
+            <li>
+              <a href="lab.html">Vibrations Lab</a>
+            </li>
+            
+          </ul>
+          
+      </nav>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- Page Content -->
+      <div id="content">
         
-        <li class="nav-item">
-          <a class="nav-link" href="lab.html">Vibrations Lab</a>
-        </li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
 
-      </ul>
-    </div>
-    </nav>
-  
-    <main role="main" class="container">
+        <main role="main" class="container">
 
-      <ul><h3>Lecture 3 <small class="text-muted">Flexibility Method</small></h3></ul>
-
-      <hr>
+          <ul><h3>Lecture 3 <small class="text-muted">Flexibility Method</small></h3></ul>
     
-               
-      <div class="panel" id="accordion">
-            <h4 id="int1"><a data-toggle="collapse" data-parent="#accordion" data-target="#int1_c">Interactive 3.1</a></h4>
-            <div id="int1_c" class="collapse in">
-              <div class="card card-body">
-                <iframe src = "../Widgets/OSA-Unit-Force/main.html" height=500px></iframe>
-              </div>
-             
-            </div>
+          <hr>
+        
+                   
+          <div class="panel" id="accordion">
+                <h4 id="int1"><a data-toggle="collapse" data-parent="#accordion" data-target="#int1_c">Interactive 3.1</a></h4>
+                <div id="int1_c" class="collapse in">
+                  <div class="card card-body">
 
+                    <div class="btn-group" role="group" aria-label="Panel 1">
+                      <a class="btn btn-outline-secondary" href="../Widgets/OSA-Unit-Force/main.html" target="_blank" role="button">
+                        <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                      </a>
+                      <button type="button" class="btn btn-outline-secondary" id="btn1">
+                        <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
+                      </button>
+                    </div>
 
+                    <iframe src = "../Widgets/OSA-Unit-Force/main.html" height=500px id="if1"></iframe>
+                  </div>
+                 
+                </div>
+    
+    
+          </div>
+        
+        
+        </main>
       </div>
-    
-    
-    </main>
+      <!-- /#page-content-wrapper -->
 
-    
+    </div>
+    <!-- /#wrapper -->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-    <script type="text/javascript">
-      $(function(){
-          var hash = document.location.hash;
-          if (hash) {
-            $(hash).find('a').click();
-          }
-      });
-    </script>
+    <script src="../js/script.js"></script>
   
+
   </body>
 </html>
