@@ -78,7 +78,7 @@
 
   #sidebar ul.components {
       padding: 20px 0;
-      border-bottom: 1px solid #47748b;
+      /*border-bottom: 1px solid #47748b;*/
   }
 
   #sidebar ul p {
@@ -217,15 +217,13 @@
 
   #sidebarCollapse span:first-of-type {
     /* rotate first one */
-    transform: rotate(45deg) translate(2px, 2px);
+    transform: rotate(45deg) translate(1px, 9px) scale(0.7);
   }
-  #sidebarCollapse span:nth-of-type(2) {
-    /* second one is not visible */
-    opacity: 0;
-  }
+
+
   #sidebarCollapse span:last-of-type {
     /* rotate third one */
-    transform: rotate(-45deg) translate(1px, -1px);
+    transform: rotate(-45deg) translate(1px, -9px) scale(0.7);
   }
 
   #sidebarCollapse.active span {
