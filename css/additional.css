@@ -46,6 +46,33 @@
       margin: 40px 0;
   }
 
+  .carousel-control-next, .carousel-control-prev{
+    width: 5%;
+  }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+height: 30px;
+width: 30px;
+outline: black;
+background-size: 100%, 100%;
+border-radius: 50%;
+border: 1px solid black;
+background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+content: '>';
+font-size: 20px;
+color: red;
+}
+
+.carousel-control-prev-icon:after {
+content: '<';
+font-size: 20px;
+color: red;
+}
   /* ---------------------------------------------------
       SIDEBAR STYLE
   ----------------------------------------------------- */
