@@ -83,44 +83,48 @@
           <ul><h3>Lecture 6 <small class="text-muted">Equations of Motion and Free Vibrations in 1 DOF</small></h3></ul>
     
           <hr>
-                   
+          
           <div class="panel" id="accordion">
-                <h4 id="int1"><a data-toggle="collapse" data-parent="#accordion" data-target="#int1_c">Interactive 6.1</a></h4>
-                <div id="int1_c" class="collapse in">
-                  <div class="card card-body">
 
-                    <div class="btn-group" role="group" aria-label="Panel 1">
-                      <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Free1dof/main.html" target="_blank" role="button">
-                        <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-                      </a>
-                      <button type="button" class="btn btn-outline-secondary" id="btn1">
-                        <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
-                      </button>
-                    </div>
+               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 
-                    <iframe src = "../Widgets/Dyn-Free1dof/main.html" height=500px id="if1"></iframe>
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/gifs/L6_1.gif" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Interactive 6.1</h5>
+                    <p class="card-text">1 DOF.</p>
+
                   </div>
-                 
-                </div>
-    
-                <h4 id="int2"><a data-toggle="collapse" data-parent="#accordion" data-target="#int2_c">Interactive 6.2</a></h4>
-                <div id="int2_c" class="collapse in">
-                  <div class="card card-body">
-
-                    <div class="btn-group" role="group" aria-label="Panel 1">
-                      <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Free2dof/main.html" target="_blank" role="button">
-                        <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-                      </a>
-                      <button type="button" class="btn btn-outline-secondary" id="btn2">
-                        <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
-                      </button>
-                    </div>
-
-                    <iframe src = "../Widgets/Dyn-Free2dof/main.html" height=525px id="if2"></iframe>
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
+                      <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </button>
+                    
+                    <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Free1dof/main.html" target="_blank" role="button">
+                      <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </a>
                   </div>
-                 
                 </div>
-    
+
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/gifs/L6_2.gif" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Interactive 6.2</h5>
+                    <p class="card-text">2 DOFs.</p>
+
+                  </div>
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
+                      <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </button>
+                    
+                    <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Free2dof/main.html" target="_blank" role="button">
+                      <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
           </div>
         
         
@@ -130,6 +134,43 @@
 
     </div>
     <!-- /#wrapper -->
+
+    <!-- Modals -->
+    <div id="int1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="btn-group" role="group" aria-label="Panel 1">
+            <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Free1dof/main.html" target="_blank" role="button">
+              <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+            </a>
+            <button type="button" class="btn btn-outline-secondary" id="btn1">
+              <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
+            </button>
+          </div>
+
+          <iframe src="../Widgets/Dyn-Free1dof/main.html" height=500px id="if1"></iframe> 
+        </div>
+      </div>
+    </div>
+
+    <div id="int2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="btn-group" role="group" aria-label="Panel 1">
+            <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Free2dof/main.html" target="_blank" role="button">
+              <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+            </a>
+            <button type="button" class="btn btn-outline-secondary" id="btn2">
+              <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
+            </button>
+          </div>
+
+          <iframe src="../Widgets/Dyn-Free2dof/main.html" height=500px id="if2"></iframe> 
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
