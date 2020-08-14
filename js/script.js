@@ -1,11 +1,3 @@
-$(function(){
-    var hash = document.location.hash;
-    if (hash) {
-        $(hash).find('a').click();
-    }
-});
-
-
 $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
