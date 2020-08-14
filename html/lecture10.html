@@ -79,41 +79,52 @@
         </nav>
 
         <main role="main" class="container">
-
+    
           <ul><h3>Lecture 10 <small class="text-muted">Transient Loading in n DOF Problems</small></h3></ul>
     
           <hr>
-        
-    
+          
           <div class="panel" id="accordion">
-            <h4 id="int1"><a data-toggle="collapse" data-parent="#accordion" data-target="#int1_c">Interactive 10.1</a></h4>
-                <div id="int1_c" class="collapse">
-                  <div class="card card-body">
-                    <iframe src="https://imperiallondon-my.sharepoint.com/personal/pinho_ic_ac_uk/_layouts/15/Doc.aspx?sourcedoc={c32b46bd-955a-45dc-8a2a-d6d3e9ee73f6}&amp;action=embedview&amp;wdAr=1.222287562481623" height=500px></iframe>
+
+               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/images/L10_1.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Interactive 10.1</h5>
+                    <p class="card-text">Uncoupling system of dynamic equations using eigenvectors.</p>
+
+                  </div>
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
+                      <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </button>
+                    
+                    <a class="btn btn-outline-secondary" href="https://onedrive.live.com/View.aspx?resid=180F5D1DB6F15DC9!13055&wdSlideId=291&wdModeSwitchTime=1597429743340&authkey=!AIFuZ6aaY4UnhVw" target="_blank" role="button">
+                      <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </a>
                   </div>
                 </div>
-    
-          </div>
-                   
-          <div class="panel" id="accordion">
-                <h4 id="int2"><a data-toggle="collapse" data-parent="#accordion" data-target="#int2_c">Interactive 10.2</a></h4>
-                <div id="int2_c" class="collapse in">
-                  <div class="card card-body">
 
-                    <div class="btn-group" role="group" aria-label="Panel 1">
-                      <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Transient/main.html" target="_blank" role="button">
-                        <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-                      </a>
-                      <button type="button" class="btn btn-outline-secondary" id="btn1">
-                        <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
-                      </button>
-                    </div>
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/gifs/L10_2.gif" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Interactive 10.2</h5>
+                    <p class="card-text">Duhamel Integral for transient loading.</p>
 
-                    <iframe src = "../Widgets/Dyn-Transient/main.html" height=700px id="if1"></iframe>
                   </div>
-                 
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
+                      <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </button>
+                    
+                    <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Transient/main.html" target="_blank" role="button">
+                      <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </a>
+                  </div>
                 </div>
-    
+                
+              </div>
           </div>
         
         
@@ -123,6 +134,33 @@
 
     </div>
     <!-- /#wrapper -->
+
+    <!-- Modals -->
+    <div id="int1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <iframe src="https://onedrive.live.com/embed?cid=180F5D1DB6F15DC9&amp;resid=180F5D1DB6F15DC9%2113055&amp;authkey=AIFuZ6aaY4UnhVw&amp;em=2&amp;wdAr=1.3334313437224345" width="722px" height="565px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+        </div>
+      </div>
+    </div>
+
+    <div id="int2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="btn-group" role="group" aria-label="Panel 1">
+            <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Transient/main.html" target="_blank" role="button">
+              <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+            </a>
+            <button type="button" class="btn btn-outline-secondary" id="btn2">
+              <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
+            </button>
+          </div>
+
+          <iframe src="../Widgets/Dyn-Transient/main.html" height=500px id="if2"></iframe> 
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
