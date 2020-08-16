@@ -152,12 +152,12 @@
             <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Transient/main.html" target="_blank" role="button">
               <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
             </a>
-            <button type="button" class="btn btn-outline-secondary" id="btn2">
+            <button type="button" class="btn btn-outline-secondary" id="btn1">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
             </button>
           </div>
 
-          <iframe src="../Widgets/Dyn-Transient/main.html" height=500px id="if2"></iframe> 
+          <iframe src="../Widgets/Dyn-Transient/main.html" height=500px id="if1"></iframe> 
         </div>
       </div>
     </div>
@@ -169,6 +169,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="../js/script.js"></script>
   
+    <script>
+      function reload1() { 
+          document.getElementById('if1').src += ''; 
+      } 
+      btn1.onclick = reload1;
+    </script>
+
 
   </body>
 </html>
