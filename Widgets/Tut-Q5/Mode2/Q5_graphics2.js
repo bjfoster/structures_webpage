@@ -41,7 +41,7 @@ function animateModes2(){
     let r2 = A1 * Math.cos(omega1 * t2) * s11 + A2 * Math.cos(omega2 * t2) * s21;
     let rr2 = A1 * Math.cos(omega1 * t2) * s12 + A2 * Math.cos(omega2 * t2) * s22;
 
-    console.log("hi");
+    //console.log("hi");
 
     /** The animation function **/
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -271,7 +271,7 @@ function animateModes2(){
     ctx.restore();
 
     x += 1;
-    console.log("hello2");
+    //console.log("hello2");
 
     myReq = requestAnimationFrame(animateModes2);
     return
