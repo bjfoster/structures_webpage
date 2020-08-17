@@ -183,21 +183,19 @@
   }
 
 
-  @media (min-width: 768px) {
-    .modal-xl {
-      width: 95%;
-     max-width:1200px;
-    
-     height: 70%;
-    }
+  .modal-xl {
+    width: 95%;
+   max-width:1200px;
+  
+   height: 70%;
+  }
 
-    .modal-tall {
-        height: 100%;
-    }
+  .modal-tall {
+      height: 100%;
+  }
 
-    .modal-tall iframe {
-        height: 100%;
-    }
+  .modal-tall iframe {
+      height: 100%;
   }
 
   .card-img-top {
