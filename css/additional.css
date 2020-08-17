@@ -199,3 +199,8 @@
         height: 100%;
     }
   }
+
+  .card-img-top {
+      border: rgb(0, 179, 0);
+      border-style: inherit;
+  }
