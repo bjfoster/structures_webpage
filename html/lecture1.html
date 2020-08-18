@@ -296,17 +296,20 @@
     
     <script>
       function reload1() { 
-          document.getElementById('if1').src += ''; 
+          document.getElementById('if1').src += '';
+          zoom1 = 1;
       } 
       btn1.onclick = reload1;
 
       function reload2() { 
-          document.getElementById('if2').src += ''; 
+          document.getElementById('if2').src += '';
+          zoom2 = 1;
       } 
       btn2.onclick = reload2; 
 
       function reload3() { 
-          document.getElementById('if3').src += ''; 
+          document.getElementById('if3').src += '';
+          zoom3 = 1;
       } 
       btn3.onclick = reload3;
       
@@ -315,71 +318,98 @@
 
     <script class = "zoom-buttons" id = "zb1">
 
-      var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
-      iframe.style.transform = "scale(1)";
-
-      var zoom1 = Number(iframe.style.transform.slice(6, iframe.style.transform.length - 1));
+    var zoom1 = 1;
 
       function zoomout1() {
+
+        var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
+
+        if (!iframe.style.zoom){
+          iframe.style.zoom = 1;
+        }
+        
         zoom1 *= 0.8;
-        document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom1 + ")";
+        document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom1;
       }
       btn_zo1.onclick = zoomout1;
 
       function zoomin1() {
+
+        var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
+
+        if (!iframe.style.zoom){
+          iframe.style.zoom = 1;
+        }
+
         zoom1 *= 1.2;
-        document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom1 + ")";
+        document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom1;
       }
       btn_zi1.onclick = zoomin1;
-      
-      iframe.style.transform = "scale(" + zoom1 + ")";
       
     </script>
 
     <script class = "zoom-buttons" id = "zb2">
 
-      var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
-      iframe.style.transform = "scale(1)";
-
-      var zoom2 = Number(iframe.style.transform.slice(6, iframe.style.transform.length - 1));
+    var zoom2 = 1;
 
       function zoomout2() {
+
+        var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
+
+        if (!iframe.style.zoom){
+          iframe.style.zoom = 2;
+        }
+        
         zoom2 *= 0.8;
-        document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom2 + ")";
+        document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom2;
       }
       btn_zo2.onclick = zoomout2;
 
       function zoomin2() {
+
+        var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
+
+        if (!iframe.style.zoom){
+          iframe.style.zoom = 2;
+        }
+        
         zoom2 *= 1.2;
-        document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom2 + ")";
+        document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom2;
       }
       btn_zi2.onclick = zoomin2;
-      
-      iframe.style.transform = "scale(" + zoom1 + ")";
       
     </script>
 
     <script class = "zoom-buttons" id = "zb3">
 
-      var iframe = document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0];
-      iframe.style.transform = "scale(1)";
+      var zoom3 = 1;
 
-      var zoom3 = Number(iframe.style.transform.slice(6, iframe.style.transform.length - 1));
+        function zoomout3() {
 
-      function zoomout3() {
-        zoom3 *= 0.8;
-        document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom3 + ")";
-      }
-      btn_zo3.onclick = zoomout3;
+          var iframe = document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0];
 
-      function zoomin3() {
-        zoom3 *= 1.2;
-        document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom3 + ")";
-      }
-      btn_zi3.onclick = zoomin3;
-      
-      iframe.style.transform = "scale(" + zoom3 + ")";
-      
-    </script>
+          if (!iframe.style.zoom){
+            iframe.style.zoom = 3;
+          }
+          
+          zoom3 *= 0.8;
+          document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom3;
+        }
+        btn_zo3.onclick = zoomout3;
+
+        function zoomin3() {
+
+          var iframe = document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0];
+
+          if (!iframe.style.zoom){
+            iframe.style.zoom = 3;
+          }
+          
+          zoom3 *= 1.2;
+          document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom3;
+        }
+        btn_zi3.onclick = zoomin3;
+        
+      </script>
   </body>
 </html>
