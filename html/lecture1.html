@@ -204,6 +204,14 @@
             <button type="button" class="btn btn-outline-secondary" id="btn1">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
             </button>
+
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo1">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi1">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
+            </button>
+
           </div>
 
           <iframe src="../Widgets/OSA-Force-Deform/main.html" height=500px id="if1"></iframe> 
@@ -222,6 +230,14 @@
             <button type="button" class="btn btn-outline-secondary" id="btn2">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
             </button>
+
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo2">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi2">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
+            </button>
+
           </div>
 
           <iframe src="../Widgets/OSA-Corresponding/main.html" height=500px id="if2"></iframe> 
@@ -256,6 +272,14 @@
             <button type="button" class="btn btn-outline-secondary" id="btn3">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
             </button>
+
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo3">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi3">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
+            </button>
+
           </div>
 
           <iframe src="../Widgets/OSA-Unit-Displacement/main.html" height=500px id="if3"></iframe> 
@@ -284,9 +308,78 @@
       function reload3() { 
           document.getElementById('if3').src += ''; 
       } 
-      btn3.onclick = reload3; 
+      btn3.onclick = reload3;
+      
 
     </script>
 
+    <script class = "zoom-buttons" id = "zb1">
+
+      var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
+      iframe.style.transform = "scale(1)";
+
+      var zoom1 = Number(iframe.style.transform.slice(6, iframe.style.transform.length - 1));
+
+      function zoomout1() {
+        zoom1 *= 0.8;
+        document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom1 + ")";
+      }
+      btn_zo1.onclick = zoomout1;
+
+      function zoomin1() {
+        zoom1 *= 1.2;
+        document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom1 + ")";
+      }
+      btn_zi1.onclick = zoomin1;
+      
+      iframe.style.transform = "scale(" + zoom1 + ")";
+      
+    </script>
+
+    <script class = "zoom-buttons" id = "zb2">
+
+      var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
+      iframe.style.transform = "scale(1)";
+
+      var zoom2 = Number(iframe.style.transform.slice(6, iframe.style.transform.length - 1));
+
+      function zoomout2() {
+        zoom2 *= 0.8;
+        document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom2 + ")";
+      }
+      btn_zo2.onclick = zoomout2;
+
+      function zoomin2() {
+        zoom2 *= 1.2;
+        document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom2 + ")";
+      }
+      btn_zi2.onclick = zoomin2;
+      
+      iframe.style.transform = "scale(" + zoom1 + ")";
+      
+    </script>
+
+    <script class = "zoom-buttons" id = "zb3">
+
+      var iframe = document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0];
+      iframe.style.transform = "scale(1)";
+
+      var zoom3 = Number(iframe.style.transform.slice(6, iframe.style.transform.length - 1));
+
+      function zoomout3() {
+        zoom3 *= 0.8;
+        document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom3 + ")";
+      }
+      btn_zo3.onclick = zoomout3;
+
+      function zoomin3() {
+        zoom3 *= 1.2;
+        document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.transform = "scale(" + zoom3 + ")";
+      }
+      btn_zi3.onclick = zoomin3;
+      
+      iframe.style.transform = "scale(" + zoom3 + ")";
+      
+    </script>
   </body>
 </html>
