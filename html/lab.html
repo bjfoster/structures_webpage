@@ -201,6 +201,12 @@
             <button type="button" class="btn btn-outline-secondary" id="btn1">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
             </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo1">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi1">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
+            </button>
           </div>
 
           <iframe src="../Widgets/Lab-ModeShapes1/main.html" height=500px id="if1"></iframe> 
@@ -218,6 +224,12 @@
             </a>
             <button type="button" class="btn btn-outline-secondary" id="btn2">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo2">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi2">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
             </button>
           </div>
 
@@ -237,6 +249,12 @@
             <button type="button" class="btn btn-outline-secondary" id="btn3">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
             </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo3">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi3">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
+            </button>
           </div>
 
           <iframe src="../Widgets/Lab-ModeShapes3/main.html" height=500px id="if3"></iframe> 
@@ -254,6 +272,12 @@
             </a>
             <button type="button" class="btn btn-outline-secondary" id="btn4">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo4">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi4">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
             </button>
           </div>
 
@@ -273,6 +297,12 @@
             <button type="button" class="btn btn-outline-secondary" id="btn5">
               <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
             </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo5">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi5">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
+            </button>
           </div>
 
           <iframe src="../Widgets/Lab-ExperimentalNyquist/main.html" height=500px id="if5"></iframe> 
@@ -291,30 +321,195 @@
   
     <script>
       function reload1() { 
-          document.getElementById('if1').src += ''; 
+          document.getElementById('if1').src += '';
+          zoom1 = 1;
       } 
       btn1.onclick = reload1;
 
       function reload2() { 
-          document.getElementById('if2').src += ''; 
+          document.getElementById('if2').src += '';
+          zoom2 = 1;
       } 
       btn2.onclick = reload2; 
 
       function reload3() { 
-          document.getElementById('if3').src += ''; 
+          document.getElementById('if3').src += '';
+          zoom3 = 1;
       } 
       btn3.onclick = reload3; 
 
       function reload4() { 
           document.getElementById('if4').src += ''; 
+          zoom4 = 1;
       } 
       btn4.onclick = reload4; 
 
       function reload5() { 
-          document.getElementById('if5').src += ''; 
+          document.getElementById('if5').src += '';
+          zoom5 = 1;
       } 
       btn5.onclick = reload5; 
     </script>
+
+<script class = "zoom-buttons" id = "zb1">
+
+  var zoom1 = 1;
+
+    function zoomout1() {
+
+      var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 1;
+      }
+      
+      zoom1 *= 0.8;
+      document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom1;
+    }
+    btn_zo1.onclick = zoomout1;
+
+    function zoomin1() {
+
+      var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 1;
+      }
+
+      zoom1 *= 1.2;
+      document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom1;
+    }
+    btn_zi1.onclick = zoomin1;
+    
+  </script>
+
+  <script class = "zoom-buttons" id = "zb2">
+
+  var zoom2 = 1;
+
+    function zoomout2() {
+
+      var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 2;
+      }
+      
+      zoom2 *= 0.8;
+      document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom2;
+    }
+    btn_zo2.onclick = zoomout2;
+
+    function zoomin2() {
+
+      var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 2;
+      }
+      
+      zoom2 *= 1.2;
+      document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom2;
+    }
+    btn_zi2.onclick = zoomin2;
+    
+  </script>
+
+  <script class = "zoom-buttons" id = "zb3">
+
+    var zoom3 = 1;
+
+      function zoomout3() {
+
+        var iframe = document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0];
+
+        if (!iframe.style.zoom){
+          iframe.style.zoom = 3;
+        }
+        
+        zoom3 *= 0.8;
+        document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom3;
+      }
+      btn_zo3.onclick = zoomout3;
+
+      function zoomin3() {
+
+        var iframe = document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0];
+
+        if (!iframe.style.zoom){
+          iframe.style.zoom = 3;
+        }
+        
+        zoom3 *= 1.2;
+        document.getElementById('if3').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom3;
+      }
+      btn_zi3.onclick = zoomin3;
+      
+    </script>
+
+<script class = "zoom-buttons" id = "zb4">
+
+  var zoom4 = 1;
+
+    function zoomout4() {
+
+      var iframe = document.getElementById('if4').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 4;
+      }
+      
+      zoom4 *= 0.8;
+      document.getElementById('if4').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom4;
+    }
+    btn_zo4.onclick = zoomout4;
+
+    function zoomin4() {
+
+      var iframe = document.getElementById('if4').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 4;
+      }
+      
+      zoom4 *= 1.2;
+      document.getElementById('if4').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom4;
+    }
+    btn_zi4.onclick = zoomin4;
+    
+  </script>
+
+<script class = "zoom-buttons" id = "zb5">
+
+  var zoom5 = 1;
+
+    function zoomout5() {
+
+      var iframe = document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 5;
+      }
+      
+      zoom5 *= 0.8;
+      document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom5;
+    }
+    btn_zo5.onclick = zoomout5;
+
+    function zoomin5() {
+
+      var iframe = document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0];
+
+      if (!iframe.style.zoom){
+        iframe.style.zoom = 5;
+      }
+      
+      zoom5 *= 1.2;
+      document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom5;
+    }
+    btn_zi5.onclick = zoomin5;
+    
+  </script>
 
   </body>
 </html>
