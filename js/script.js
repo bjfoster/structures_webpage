@@ -11,6 +11,12 @@ $(document).ready(function () {
         const modalId = `#${$(this).attr('id')}`;
         if (window.location.href.indexOf(modalId) !== -1) {
             $(modalId).modal('show');
+            const iframe = $(modalId).contents().find("iframe");
+            const source = $(iframe).attr("data-src");
+            if (source !== -1) {
+                $(iframe).attr("src", source);
+            }
+            
         }
     });
 });

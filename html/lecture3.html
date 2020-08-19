@@ -97,7 +97,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
+                    <button id="op1" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -141,7 +141,7 @@
             </button>
           </div>
 
-          <iframe src="../Widgets/OSA-Unit-Force/main.html" height=500px id="if1"></iframe> 
+          <iframe data-src="../Widgets/OSA-Unit-Force/main.html" height=500px id="if1"></iframe> 
         </div>
       </div>
     </div>
@@ -159,6 +159,14 @@
           zoom1 = 1;
       } 
       btn1.onclick = reload1;
+
+      function open1() {
+        if(!document.getElementById('if1').src) {
+          document.getElementById('if1').src = document.getElementById('if1').dataset.src;
+        }
+      }
+      op1.onclick = open1;
+
     </script>
 
   <script class = "zoom-buttons" id = "zb1">

@@ -96,7 +96,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
+                    <button id="op1" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -114,7 +114,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
+                    <button id="op2" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
 
@@ -170,7 +170,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int5">
+                    <button id="op3" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int5">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
 
@@ -214,7 +214,7 @@
 
           </div>
 
-          <iframe src="../Widgets/OSA-Force-Deform/main.html" height=500px id="if1"></iframe> 
+          <iframe data-src="../Widgets/OSA-Force-Deform/main.html" height=500px id="if1"></iframe> 
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@
 
           </div>
 
-          <iframe src="../Widgets/OSA-Corresponding/main.html" height=500px id="if2"></iframe> 
+          <iframe data-src="../Widgets/OSA-Corresponding/main.html" height=500px id="if2"></iframe> 
         </div>
       </div>
     </div>
@@ -282,7 +282,7 @@
 
           </div>
 
-          <iframe src="../Widgets/OSA-Unit-Displacement/main.html" height=500px id="if3"></iframe> 
+          <iframe data-src="../Widgets/OSA-Unit-Displacement/main.html" height=500px id="if3"></iframe> 
         </div>
       </div>
     </div>
@@ -313,6 +313,26 @@
       } 
       btn3.onclick = reload3;
       
+      function open1() {
+        if(!document.getElementById('if1').src) {
+          document.getElementById('if1').src = document.getElementById('if1').dataset.src;
+        }
+      }
+      op1.onclick = open1;
+
+      function open2() {
+        if(!document.getElementById('if2').src) {
+          document.getElementById('if2').src = document.getElementById('if2').dataset.src;
+        }
+      }
+      op2.onclick = open2;
+
+      function open3() {
+        if(!document.getElementById('if3').src) {
+          document.getElementById('if3').src = document.getElementById('if3').dataset.src;
+        }
+      }
+      op3.onclick = open3;
 
     </script>
 

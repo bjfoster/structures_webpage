@@ -96,7 +96,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
+                    <button id="op1" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -114,7 +114,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
+                    <button id="op2" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -132,7 +132,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int3">
+                    <button id="op3" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int3">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -150,7 +150,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int4">
+                    <button id="op4" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int4">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -168,7 +168,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int5">
+                    <button id="op5" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int5">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -209,7 +209,7 @@
             </button>
           </div>
 
-          <iframe src="../Widgets/Lab-ModeShapes1/main.html" height=500px id="if1"></iframe> 
+          <iframe data-src="../Widgets/Lab-ModeShapes1/main.html" height=500px id="if1"></iframe> 
         </div>
       </div>
     </div>
@@ -233,7 +233,7 @@
             </button>
           </div>
 
-          <iframe src="../Widgets/Lab-ModeShapes2/main.html" height=500px id="if2"></iframe> 
+          <iframe data-src="../Widgets/Lab-ModeShapes2/main.html" height=500px id="if2"></iframe> 
         </div>
       </div>
     </div>
@@ -257,7 +257,7 @@
             </button>
           </div>
 
-          <iframe src="../Widgets/Lab-ModeShapes3/main.html" height=500px id="if3"></iframe> 
+          <iframe data-src="../Widgets/Lab-ModeShapes3/main.html" height=500px id="if3"></iframe> 
         </div>
       </div>
     </div>
@@ -281,7 +281,7 @@
             </button>
           </div>
 
-          <iframe src="../Widgets/Lab-TheoreticalNyquist/main.html" height=500px id="if4"></iframe> 
+          <iframe data-src="../Widgets/Lab-TheoreticalNyquist/main.html" height=500px id="if4"></iframe> 
         </div>
       </div>
     </div>
@@ -305,7 +305,7 @@
             </button>
           </div>
 
-          <iframe src="../Widgets/Lab-ExperimentalNyquist/main.html" height=500px id="if5"></iframe> 
+          <iframe data-src="../Widgets/Lab-ExperimentalNyquist/main.html" height=500px id="if5"></iframe> 
         </div>
       </div>
     </div>
@@ -348,7 +348,43 @@
           document.getElementById('if5').src += '';
           zoom5 = 1;
       } 
-      btn5.onclick = reload5; 
+      btn5.onclick = reload5;
+
+      function open1() {
+        if(!document.getElementById('if1').src) {
+          document.getElementById('if1').src = document.getElementById('if1').dataset.src;
+        }
+      }
+      op1.onclick = open1;
+
+      function open2() {
+        if(!document.getElementById('if2').src) {
+          document.getElementById('if2').src = document.getElementById('if2').dataset.src;
+        }
+      }
+      op2.onclick = open2;
+
+      function open3() {
+        if(!document.getElementById('if3').src) {
+          document.getElementById('if3').src = document.getElementById('if3').dataset.src;
+        }
+      }
+      op3.onclick = open3;
+
+      function open4() {
+        if(!document.getElementById('if4').src) {
+          document.getElementById('if4').src = document.getElementById('if4').dataset.src;
+        }
+      }
+      op4.onclick = open4;
+
+      function open5() {
+        if(!document.getElementById('if5').src) {
+          document.getElementById('if5').src = document.getElementById('if5').dataset.src;
+        }
+      }
+      op5.onclick = open5;
+
     </script>
 
 <script class = "zoom-buttons" id = "zb1">

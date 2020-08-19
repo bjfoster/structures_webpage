@@ -96,7 +96,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
+                    <button id="op1" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -114,7 +114,7 @@
 
                   </div>
                   <div class="card-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
+                    <button id="op2" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -158,7 +158,7 @@
 
           </div>
 
-          <iframe src="../Widgets/Tut-Q3/1dof/main.html" height=500px id="if1"></iframe> 
+          <iframe data-src="../Widgets/Tut-Q3/1dof/main.html" height=500px id="if1"></iframe> 
         </div>
       </div>
     </div>
@@ -185,7 +185,7 @@
             
           </div>
 
-          <iframe src="../Widgets/Tut-Q3/2dof/main.html" height=500px id="if2"></iframe> 
+          <iframe data-src="../Widgets/Tut-Q3/2dof/main.html" height=500px id="if2"></iframe> 
         </div>
       </div>
     </div>
@@ -208,7 +208,22 @@
           document.getElementById('if2').src += '';
           zoom2 = 1;
       } 
-      btn2.onclick = reload2; 
+      btn2.onclick = reload2;
+
+      function open1() {
+        if(!document.getElementById('if1').src) {
+          document.getElementById('if1').src = document.getElementById('if1').dataset.src;
+        }
+      }
+      op1.onclick = open1;
+
+      function open2() {
+        if(!document.getElementById('if2').src) {
+          document.getElementById('if2').src = document.getElementById('if2').dataset.src;
+        }
+      }
+      op2.onclick = open2;
+
     </script>
 
 <script class = "zoom-buttons" id = "zb1">
