@@ -207,3 +207,9 @@
       color: #007bff;
       text-decoration: underline;
   }
+
+  @media (min-width: 992px){
+        .navbar-expand-lg {
+            justify-content: space-between;
+        }
+}

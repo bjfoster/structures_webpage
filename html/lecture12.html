@@ -12,7 +12,7 @@
     <!-- Additional Stylings-->
     <link rel="stylesheet" href="../css/additional.css">
 
-    <title>Lecture 8</title>
+    <title>Lecture 7</title>
     
 
   </head>
@@ -87,50 +87,30 @@
 
           <ul class="pagination justify-content-end" style="margin-bottom: 0;">
             <li class="page-item">
-                <a class="page-link" href="lecture7.html" aria-label="Previous">
+                <a class="page-link" href="lecture11.html" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">Previous</span>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="lecture9.html" aria-label="Next">
+                <a class="page-link" href="lecture13.html" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                 </a>
             </li>
           </ul>
+
         </nav>
 
         <main role="main" class="container">
     
-          <ul><h3>Lecture 8 <small class="text-muted">Modal Analysis</small></h3></ul>
+          <ul><h3>Lecture 12 <small class="text-muted">Hamilton Principle</small></h3></ul>
     
           <hr>
           
-          <div class="panel" id="accordion">
-
-               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="../assets/gifs/L8_1.gif" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Interactive 8.1</h5>
-                    <p class="card-text">Two pendulums joined by a spring.</p>
-
-                  </div>
-                  <div class="card-footer">
-                    <button id="op1" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
-                      <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-                    </button>
-                    
-                    <a class="btn btn-outline-secondary" href="../Widgets/Dyn-DoublePen/main.html" target="_blank" role="button">
-                      <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-                    </a>
-                  </div>
-                </div>
-               
-              </div>
-          </div>
+          <p style="color: #212529">
+            There aren't any interactive widgets here yet. Do you have an idea for a widget that would be useful here? If so, let <a style="color: #007bff; text-decoration: underline;"href="mailto:silvestre.pinho@imperial.ac.uk?subject=Structures 2 New Widget Idea">Prof. Pinho</a> know.
+          </p>
         
         
         </main>
@@ -140,33 +120,6 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- Modals -->
-    <div id="int1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content modal-tall">
-
-          <div class="btn-group" role="group" aria-label="Panel 1">
-            <a class="btn btn-outline-secondary" href="../Widgets/Dyn-DoublePen/main.html" target="_blank" role="button">
-              <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-            </a>
-            <button type="button" class="btn btn-outline-secondary" id="btn1">
-              <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
-            </button>
-
-            <button type="button" class="btn btn-outline-secondary" id="btn_zo1">
-              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
-            </button>
-            <button type="button" class="btn btn-outline-secondary" id="btn_zi1">
-              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
-            </button>
-            
-          </div>
-
-          <iframe data-src="../Widgets/Dyn-DoublePen/main.html" height=500px id="if1"></iframe> 
-        </div>
-      </div>
-    </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -174,53 +127,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="../js/script.js"></script>
   
-    <script>
-      function reload1() { 
-          document.getElementById('if1').src += '';
-          zoom1 = 1;
-      } 
-      btn1.onclick = reload1;
-
-      function open1() {
-        if(!document.getElementById('if1').src) {
-          document.getElementById('if1').src = document.getElementById('if1').dataset.src;
-        }
-      }
-      op1.onclick = open1;
-
-    </script>
-
-  <script class = "zoom-buttons" id = "zb1">
-
-    var zoom1 = 1;
-
-    function zoomout1() {
-
-      var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
-
-      if (!iframe.style.zoom){
-        iframe.style.zoom = 1;
-      }
-      
-      zoom1 *= 0.8;
-      document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom1;
-    }
-    btn_zo1.onclick = zoomout1;
-
-    function zoomin1() {
-
-      var iframe = document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0];
-
-      if (!iframe.style.zoom){
-        iframe.style.zoom = 1;
-      }
-
-      zoom1 *= 1.2;
-      document.getElementById('if1').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom1;
-    }
-    btn_zi1.onclick = zoomin1;
-    
-  </script>
 
   </body>
 </html>
