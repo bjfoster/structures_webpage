@@ -6,4 +6,4 @@ The webiste can be downloaded and hosted without any file alterations, and is st
 
 This webiste was built by Benjamin Foster, during a StudentShapers undergraduate research project in the summer of 2020 - working with Prof Pinho, Qiying Deng, and Isaac Santos.
 
-The website is a collection of pages that hosts the interactive widgets developed from previous StudentShapers projects, as well as other interactive materials for the course. The webiste style and layout is designed to match the lecture notes that are provided for the AERO50008 course.
+The website is a collection of pages that hosts the interactive widgets developed from previous StudentShapers projects, as well as other interactive materials for the course. The webiste style and layout is designed to match the lecture notes that are provided for the AERO50008 course. The website is built using Bootstrap 5 components and styling, with custom css on top.
