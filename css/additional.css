@@ -202,3 +202,8 @@
       border: rgb(0, 179, 0);
       border-style: inherit;
   }
+
+  div#welcome h4 a {
+      color: #007bff;
+      text-decoration: underline;
+  }
