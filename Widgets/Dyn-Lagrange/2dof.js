@@ -31,6 +31,7 @@ var rAmp = 0.2;
 
 var stepNo = 0;
 var prevW = 0;
+var prevR0 = 0;
 var omega = 0.1;
 let rsrc;
 
@@ -57,7 +58,7 @@ data = [{
     y: massCoordy,
     type: 'scatter',
     mode: 'markers',
-    marker: {color: 'blue', size: 50, symbol: 'circle'},
+    marker: {color: 'blue', size: 50, opacity: 1, symbol: 'square'},
     connectgaps: false,
   }];
 
@@ -559,9 +560,10 @@ function updateMat () {
 }
 
 function compute () {
-  if (prevW == 0 || omega != prevW) {
+  if (prevW == 0 || omega != prevW || prevR0 == 0 || R0 != prevR0) {
     updateMat();
     prevW = omega;
+    prevR0 = R0;
   }
   r = rsrc[0]*math.sin(omega*stepNo*dt) + rsrc[1]*math.cos(omega*stepNo*dt);
   rdot = (omega*rsrc[0]*math.cos(omega*stepNo*dt) - omega*rsrc[1]*math.sin(omega*stepNo*dt));
@@ -607,6 +609,7 @@ function startAnimation () {
   clearInterval(startAnim);
   startAnim = setInterval(function () {
     stepNo++;
+    // console.log(stepNo)
     compute();
     updatePosition();
     return;
@@ -619,7 +622,7 @@ function buttonPress (hitButton) {
     hitButton.prop('value', 'Reset');
     Plotly.relayout(graphContainer, {annotations: [], shapes: wallOnly});
     startAnimation();
-  } else {
+  } else if (hitButton.attr('value') == "Reset"){
     hitButton.prop('value', 'Start');
     clearInterval(startAnim);
     stepNo = 0;
@@ -642,7 +645,28 @@ function buttonPress (hitButton) {
     massCoordx = origin[0];
     updatePosition();
     Plotly.relayout(graphContainer, {annotations: annotations, shapes: shapes});
-  }
+  } else if (hitButton.attr('value') == "Variables"){
+      $("#vars").show();
+      $("#plotbox1").hide();
+      $("#plotbox2").hide();
+      $("#plotbox3").hide();
+  } else if (hitButton.attr('value') == "Displacement"){
+    $("#vars").hide();
+    $("#plotbox1").show();
+    $("#plotbox2").hide();
+    $("#plotbox3").hide();
+  }else if (hitButton.attr('value') == "Energies"){
+    $("#vars").hide();
+    $("#plotbox1").hide();
+    $("#plotbox2").show();
+    $("#plotbox3").hide();
+  }else if (hitButton.attr('value') == "Lagrange"){
+    $("#vars").hide();
+    $("#plotbox1").hide();
+    $("#plotbox2").hide();
+    $("#plotbox3").show();
+}
+
   return;
 }
 

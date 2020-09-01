@@ -27,37 +27,30 @@
 
 <body style="background-color: #F4F4F4">
   <!--Graph-->
-  <div class="row" id="graph">
-    <div id="graph0"></div>
-  </div>
 
   <div class="row">
-    <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
-      <span style="font-weight: bold">Driving Force \(R_0\)</span>
-      <div class="slideWrap" style="text-align: center">
-        <span class="sliderMin">&nbsp; zero</span>
-        <input
-        id="R0"
-        style="width: 60%"
-        class="inputs"
-        type="range"
-        value="0.5"
-        min="0"
-        max="3.9"
-        step="0.1"/>
-        <span class="sliderMax">large </span>
-      </div>
+    <div class="one-half column" id="graph" style="text-align: center; margin-left: 0; width: 50%">
+      <div id="graph0"></div>
     </div>
-  </div>
+    <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
 
-  <div class="row" id="sliders" style="text-align: center; margin-left: 0">
-    <div class="row">
-      <div class="one column" style="text-align: center; margin-left: 0; width: 8.33%"><br></div>
-      <div class="three columns" style="text-align: center; margin-left: 0; width: 25%">
-        <br>
-        <input type="button" class="button" value="Start" id="resetb" style="font-weight: 400">
+      <div class="row">
+        <span style="font-weight: bold">Driving Force \(R_0\)</span>
+        <div class="slideWrap" style="text-align: center">
+          <span class="sliderMin">&nbsp; zero</span>
+          <input
+          id="R0"
+          style="width: 60%"
+          class="inputs"
+          type="range"
+          value="0.5"
+          min="0"
+          max="3.9"
+          step="0.1"/>
+          <span class="sliderMax">large </span>
+        </div>
       </div>
-      <div class="eight columns" style="text-align: left; margin-left: 0; width: 66.66%">
+      <div class="row">
         <div class="slideWrap" style="text-align: center">
           Forcing frequency \(\omega\)<br>
           <span class="sliderMin">small</span>
@@ -74,15 +67,76 @@
         </div>
       </div>
     </div>
+
   </div>
 
-  <div class="row">
-    <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
-      <span style="font-weight: bold">Mass \(m\)</span>
+  <div class="row" id="buttons">
+    <div class="four columns" style="text-align: center; margin-left: 0; width: 16%">
+      <input type="button" class="button" value="Variables" id="variables_btn" style="font-weight: 400">
+    </div>
+    <div class="four columns" style="text-align: center; margin-left: 0; width: 16%">
+      <input type="button" class="button" value="Displacement" id="disp_btn" style="font-weight: 400">
+    </div>
+    <div class="four columns" style="text-align: center; margin-left: 0; width: 16%">
+      <input type="button" class="button" value="Energies" id="energy_btn" style="font-weight: 400">
+    </div>
+    <div class="four columns" style="text-align: center; margin-left: 0; width: 16%">
+      <input type="button" class="button" value="Lagrange" id="lagrange_btn" style="font-weight: 400">
+    </div>
+    <div class="four columns" style="text-align: center; margin-left: 0; width: 16%">
+      <input type="button" class="button" value="Start" id="resetb" style="font-weight: 400">
+    </div>
+    <div class="four columns" style="text-align: center; margin-left: 0; width: 16%">
+      <input type="button" class="button" value="Pause" id="pause_btn" style="font-weight: 400">
+    </div>
+  </div>
+
+  <div id="vars">
+    <div class="row">
+      <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
+        <span style="font-weight: bold">Mass \(m\)</span>
+          <div class="slideWrap" style="text-align: center">
+            <span class="sliderMin">small</span>
+            <input
+            id="m"
+            style="width: 60%"
+            class="inputs"
+            type="range"
+            value="1"
+            min="0.1"
+            max="1.9"
+            step="0.1"/>
+            <span class="sliderMax">large </span>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
+        <span style="font-weight: bold">Damping coefficient \(c\)</span>
+        <div class="slideWrap" style="text-align: center">
+          <span class="sliderMin">&nbsp; zero</span>
+          <input
+          id="c"
+          style="width: 60%"
+          class="inputs"
+          type="range"
+          value="0.5"
+          min="0"
+          max="3.9"
+          step="0.1"/>
+          <span class="sliderMax">large </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
+        <span style="font-weight: bold">Spring constant \(k\)</span>
         <div class="slideWrap" style="text-align: center">
           <span class="sliderMin">small</span>
           <input
-          id="m"
+          id="k"
           style="width: 60%"
           class="inputs"
           type="range"
@@ -92,55 +146,19 @@
           step="0.1"/>
           <span class="sliderMax">large </span>
         </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
-      <span style="font-weight: bold">Damping coefficient \(c\)</span>
-      <div class="slideWrap" style="text-align: center">
-        <span class="sliderMin">&nbsp; zero</span>
-        <input
-        id="c"
-        style="width: 60%"
-        class="inputs"
-        type="range"
-        value="0.5"
-        min="0"
-        max="3.9"
-        step="0.1"/>
-        <span class="sliderMax">large </span>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="one-half column" style="text-align: center; margin-left: 0; width: 50%">
-      <span style="font-weight: bold">Spring constant \(k\)</span>
-      <div class="slideWrap" style="text-align: center">
-        <span class="sliderMin">small</span>
-        <input
-        id="k"
-        style="width: 60%"
-        class="inputs"
-        type="range"
-        value="1"
-        min="0.1"
-        max="1.9"
-        step="0.1"/>
-        <span class="sliderMax">large </span>
       </div>
     </div>
   </div>
 
-  <div class="row" id="plotbox">
+  <div class="row" id="plotbox1">
     <div id="plot1"></div>
   </div>
 
-  <div class="row" id="plotbox">
+  <div class="row" id="plotbox2">
     <div id="plot2"></div>
   </div>
 
-  <div class="row" id="plotbox">
+  <div class="row" id="plotbox3">
     <div id="plot3"></div>
   </div>
 
