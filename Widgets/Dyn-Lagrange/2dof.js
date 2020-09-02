@@ -9,7 +9,7 @@ var m = 1, c = 0.5, k = 1;
 var R0 = 0.25;
 var dt = math.PI/24;
 
-const maxlen = 512;
+const maxlen = 128;
 const graphlen = maxlen;
 var rDeque = new Deque(maxlen);
 var rdotDeque = new Deque(maxlen);
@@ -32,7 +32,7 @@ var rAmp = 0.2;
 var stepNo = 0;
 var prevW = 0;
 var prevR0 = 0;
-var omega = 0.1;
+var omega = 1.0;
 let rsrc;
 
 let r, rdot, rdotdot;
@@ -57,7 +57,7 @@ data = [{
     x: massCoordx,
     y: massCoordy,
     type: 'scatter',
-    mode: 'markers',
+    mode: 'line + markers',
     marker: {color: 'blue', size: 50, opacity: 1, symbol: 'square'},
     connectgaps: false,
   }];
@@ -479,26 +479,10 @@ function updatePosition () {
   plotData8 = T_deriv_Deque.toArraySlice(graphlen);
 
   plotData9 = total_deriv_Deque.toArraySlice(graphlen);
-
+  gData0 = gDeque.toArraySlice(graphlen);
 
   //plotData1 = math.add(rDeque[1].toArraySlice(graphlen),-origin[1][0]);
   xrange = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData0.length);
-  xrange1 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData1.length);
-  xrange2 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData2.length);
-
-  xrange3 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData3.length);
-  xrange4 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData4.length);
-  xrange5 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData5.length);
-
-  xrange6 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData6.length);
-  xrange7 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData7.length);
-  xrange8 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData8.length);
-
-  xrange9 = math.range(0, 6, 6/(graphlen))._data.slice(0, plotData9.length);
-
-  gData0 = gDeque.toArraySlice(graphlen);
-  //gData1 = gDeque[1].toArraySlice(graphlen);
-  xrange0 = math.range(0, 6, 6/(graphlen))._data.slice(0, gData0.length);
 
   if (plotData0.length > 0) {
     var bound1 = math.max(math.max(math.abs(plotData0)), math.max(math.abs(plotData1)), math.max(math.abs(plotData2)))+0.05;
@@ -518,30 +502,31 @@ function updatePosition () {
     var bound3 = 0.8;
   }
   
+  
   Plotly.relayout("plot1", { 'yaxis.range': [-bound1, bound1]});
   Plotly.restyle("plot1", {
-    x: [xrange, xrange1, xrange2],
+    x: [xrange, xrange, xrange],
     y: [plotData0, plotData1, plotData2],
   });
   
-  
+
   Plotly.relayout("plot2", { 'yaxis.range': [-0.01, bound2]});
   Plotly.restyle("plot2", {
-    x: [xrange3, xrange4, xrange5],
+    x: [xrange, xrange, xrange],
     y: [plotData3, plotData4, plotData5],
   });
-
+  
 
  
   Plotly.relayout("plot3", { 'yaxis.range': [-bound3, bound3]});
   Plotly.restyle("plot3", {
-    x: [xrange6, xrange7, xrange8, xrange9, xrange0],
+    x: [xrange, xrange, xrange, xrange, xrange],
     y: [plotData6, plotData7, plotData8, plotData9, gData0],
   }); 
 
   // main plot
   updateSpring();
-  Plotly.restyle(graphContainer, {x: [springx, massCoordx], y: [springy, massCoordy]}, [0, 1]);
+  Plotly.restyle(graphContainer, {x: [springx, massCoordx], y: [springy, massCoordy]});
 
   return;
 }
@@ -549,7 +534,7 @@ function updatePosition () {
 function updateMat () {
   var matK = [[k, 0], [0, k]];
   var matM = [[-m*omega*omega, 0], [0, -m*omega*omega]];
-  var matC = [[0, -c], [c, 0]];
+  var matC = [[0, -c*omega], [c*omega, 0]];
 
   var matA = math.add(matK, matM, matC);
 
@@ -693,6 +678,7 @@ $(document).ready(function () {
     c = $("#c").val();
     k = $("#k").val();
     R0 = $("#R0").val();
+    updateMat();
     if ($("#resetb").val()=="Reset") {
       startAnimation();
     }
