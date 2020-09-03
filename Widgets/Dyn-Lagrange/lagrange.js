@@ -6,7 +6,7 @@ const origin = [2, lineCoord];
 var massCoordx = origin[0];
 var massCoordy = origin[1];
 var m = 1, c = 0.5, k = 1;
-var R0 = 0.25;
+var R0 = 0.05;
 var dt = math.PI/24;
 
 const maxlen = 128;
@@ -26,8 +26,6 @@ var T_deriv_Deque = new Deque(maxlen);
 var total_deriv_Deque = new Deque(maxlen);
 
 var gDeque = new Deque(maxlen);
-var amp = 5;
-var rAmp = 0.2;
 
 var stepNo = 0;
 var prevW = 0;
@@ -39,7 +37,7 @@ let r, rdot, rdotdot;
 let U, D, T;
 let U_deriv, D_deriv, T_deriv;
 
-let graphContainer;
+let graphContainer, pointsContainer, points;
 let startAnim;
 
 let springlen, springx, springy
@@ -51,6 +49,7 @@ data = [{
     type: 'scatter',
     mode: 'line + markers',
     line: {color: 'black'},
+    name: 'Spring',
     marker: {color: 'transparent', size: 0, opacity: 0},
     connectgaps: false,
   }, {
@@ -58,7 +57,9 @@ data = [{
     y: massCoordy,
     type: 'scatter',
     mode: 'line + markers',
-    marker: {color: 'blue', size: 50, opacity: 1, symbol: 'square'},
+    line: {color: 'black'},
+    name: 'Mass',
+    marker: {color: 'blue', size: 50, symbol: 'square'},
     connectgaps: false,
   }];
 
@@ -95,7 +96,7 @@ layout = {
     showticklabels: false,
     fixedrange: true,
   },
-  showlegend: false,
+  showlegend: true,
   hovermode: false,
 }
 
@@ -198,7 +199,7 @@ var shapes = [{ // wall
 var data1 = [{
     x: [0, 0.1],
     y: [0, 0],
-    type: 'scattergl',
+    type: 'scatter',
     mode: 'lines',
     markers: {color: 'transparent', size: 0, opacity: 0},
     line: {color: 'blue'},
@@ -207,7 +208,7 @@ var data1 = [{
   }, {
     x: [0, 0.1],
     y: [0, 0],
-    type: 'scattergl',
+    type: 'scatter',
     mode: 'lines',
     markers: {color: 'transparent', size: 0, opacity: 0},
     line: {color: 'red', width: 2},
@@ -216,7 +217,7 @@ var data1 = [{
   }, {
     x: [0, 0.1],
     y: [0, 0],
-    type: 'scattergl',
+    type: 'scatter',
     mode: 'lines',
     markers: {color: 'transparent', size: 0, opacity: 0},
     line: {color: 'green', width: 2},
@@ -227,7 +228,7 @@ var data1 = [{
 var data2 = [{
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'blue'},
@@ -236,7 +237,7 @@ var data2 = [{
 }, {
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'red', width: 2},
@@ -245,7 +246,7 @@ var data2 = [{
 }, {
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'green', width: 2},
@@ -256,47 +257,47 @@ var data2 = [{
 var data3 = [{
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'blue'},
-  name: "$\\frac{dU}{dr}$",
+  name: "$\\frac{\\mathrm{d}U}{\\mathrm{d}r}$",
   connectgaps: false,
 }, {
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'red', width: 2},
-  name: "$\\frac{dD}{d\\dot{r}}$",
+  name: "$\\frac{\\mathrm{d}D}{\\mathrm{d}\\dot{r}}$",
   connectgaps: false,
 }, {
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'green', width: 2},
-  name: "$\\frac{d}{dt}(\\frac{dT}{d\\dot{r}})$",
+  name: "$\\frac{\\mathrm{d}}{\\mathrm{d}t}(\\frac{\\mathrm{d}T}{\\mathrm{d}\\dot{r}})$",
   connectgaps: false,
 
   
 }, {
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'black', width: 2},
-  name: "sum",
+  name: "Sum of Above",
   connectgaps: false,
 
   
 }, {
   x: [0, 0.1],
   y: [0, 0],
-  type: 'scattergl',
+  type: 'scatter',
   mode: 'lines',
   markers: {color: 'transparent', size: 0, opacity: 0},
   line: {color: 'brown', width: 2, dash: 'dashdot'},
@@ -309,15 +310,15 @@ var data3 = [{
 
 var layout1 = {
     autosize: false,
-    width: 800,
-    height: 250,
+    width: 600,
+    height: 200,
     plot_bgcolor:"#F4F4F4",
     paper_bgcolor:"#F4F4F4",
     margin: {
-      l: 50,
-      r: 50,
-      b: 50,
-      t: 50,
+      l: 10,
+      r: 10,
+      b: 20,
+      t: 20,
       pad: 4,
     },
     xaxis: {
@@ -341,20 +342,24 @@ var layout1 = {
       fixedrange: true,
     },
     showlegend: true,
+    legend: {
+      x: 1,
+      y: 0.5,
+    },
     hovermode: false,
   }
 
-var layout2 = {
+  var layout3 = {
     autosize: false,
-    width: 800,
-    height: 250,
+    width: 666,
+    height: 200,
     plot_bgcolor:"#F4F4F4",
     paper_bgcolor:"#F4F4F4",
     margin: {
-      l: 50,
-      r: 50,
-      b: 50,
-      t: 50,
+      l: 10,
+      r: 10,
+      b: 20,
+      t: 20,
       pad: 4,
     },
     xaxis: {
@@ -368,7 +373,7 @@ var layout2 = {
       fixedrange: true,
     },
     yaxis: {
-      range: [-0.1,5],
+      range: [-0.8,0.8],
       showgrid: true,
       zeroline: true,
       showline: false,
@@ -378,45 +383,16 @@ var layout2 = {
       fixedrange: true,
     },
     showlegend: true,
+    legend: {
+      x: 1,
+      y: 0.5,
+    },
     hovermode: false,
   }
 
-var layout3 = {
-  autosize: false,
-  width: 800,
-  height: 250,
-  plot_bgcolor:"#F4F4F4",
-  paper_bgcolor:"#F4F4F4",
-  margin: {
-    l: 50,
-    r: 50,
-    b: 50,
-    t: 50,
-    pad: 4,
-  },
-  xaxis: {
-    range: [-.1,6],
-    showgrid: true,
-    zeroline: true,
-    showline: false,
-    autotick: true,
-    ticks: '',
-    showticklabels: false,
-    fixedrange: true,
-  },
-  yaxis: {
-    range: [-0.8,0.8],
-    showgrid: true,
-    zeroline: true,
-    showline: false,
-    autotick: true,
-    ticks: '',
-    showticklabels: false,
-    fixedrange: true,
-  },
-  showlegend: true,
-  hovermode: false,
-}
+  function clamp (x, xmin, xmax) {
+    return math.max(xmin, math.min(x, xmax))
+  }
 
 function updateSpring () {
   springlen = [massCoordx-1];
@@ -545,10 +521,9 @@ function updateMat () {
 }
 
 function compute () {
-  if (prevW == 0 || omega != prevW || prevR0 == 0 || R0 != prevR0) {
+  if (prevW == 0 || omega != prevW) {
     updateMat();
     prevW = omega;
-    prevR0 = R0;
   }
   r = rsrc[0]*math.sin(omega*stepNo*dt) + rsrc[1]*math.cos(omega*stepNo*dt);
   rdot = (omega*rsrc[0]*math.cos(omega*stepNo*dt) - omega*rsrc[1]*math.sin(omega*stepNo*dt));
@@ -630,28 +605,7 @@ function buttonPress (hitButton) {
     massCoordx = origin[0];
     updatePosition();
     Plotly.relayout(graphContainer, {annotations: annotations, shapes: shapes});
-  } else if (hitButton.attr('value') == "Variables"){
-      $("#vars").show();
-      $("#plotbox1").hide();
-      $("#plotbox2").hide();
-      $("#plotbox3").hide();
-  } else if (hitButton.attr('value') == "Displacement"){
-    $("#vars").hide();
-    $("#plotbox1").show();
-    $("#plotbox2").hide();
-    $("#plotbox3").hide();
-  }else if (hitButton.attr('value') == "Energies"){
-    $("#vars").hide();
-    $("#plotbox1").hide();
-    $("#plotbox2").show();
-    $("#plotbox3").hide();
-  }else if (hitButton.attr('value') == "Lagrange"){
-    $("#vars").hide();
-    $("#plotbox1").hide();
-    $("#plotbox2").hide();
-    $("#plotbox3").show();
-}
-
+  }
   return;
 }
 
@@ -665,10 +619,17 @@ $(document).ready(function () {
 
   Plotly.newPlot(graphContainer, data, layout, {displayModeBar: false});
   Plotly.newPlot("plot1", data1, layout1, {displayModeBar: false});
-  Plotly.newPlot("plot2", data2, layout2, {displayModeBar: false});
+  Plotly.newPlot("plot2", data2, layout1, {displayModeBar: false});
   Plotly.newPlot("plot3", data3, layout3, {displayModeBar: false});
 
   Plotly.relayout(graphContainer, {annotations: annotations, shapes: shapes});
+
+  pointsContainer = graphContainer.querySelector(".scatterlayer .trace:last-of-type .points");
+  points = pointsContainer.getElementsByTagName("path");
+
+  for (var i = 0; i < points.length; i++) {
+    points[i].handle = i;
+  }
 
   $("input").on("change", function () {
     omega = parseFloat($("#omega").val());
@@ -677,7 +638,6 @@ $(document).ready(function () {
     m = $("#m").val();
     c = $("#c").val();
     k = $("#k").val();
-    R0 = $("#R0").val();
     updateMat();
     if ($("#resetb").val()=="Reset") {
       startAnimation();
