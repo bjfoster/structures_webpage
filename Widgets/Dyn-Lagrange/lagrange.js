@@ -53,8 +53,8 @@ data = [{
     marker: {color: 'transparent', size: 0, opacity: 0},
     connectgaps: false,
   }, {
-    x: massCoordx,
-    y: massCoordy,
+    x: [massCoordx, massCoordx],
+    y: [massCoordy, massCoordy],
     type: 'scatter',
     mode: 'line + markers',
     line: {color: 'black'},
@@ -96,7 +96,7 @@ layout = {
     showticklabels: false,
     fixedrange: true,
   },
-  showlegend: true,
+  showlegend: false,
   hovermode: false,
 }
 
@@ -486,7 +486,7 @@ function updatePosition () {
   });
   
 
-  Plotly.relayout("plot2", { 'yaxis.range': [-0.01, bound2]});
+  Plotly.relayout("plot2", { 'yaxis.range': [0, bound2]});
   Plotly.restyle("plot2", {
     x: [xrange, xrange, xrange],
     y: [plotData3, plotData4, plotData5],
@@ -502,7 +502,7 @@ function updatePosition () {
 
   // main plot
   updateSpring();
-  Plotly.restyle(graphContainer, {x: [springx, massCoordx], y: [springy, massCoordy]});
+  Plotly.restyle(graphContainer, {x: [springx, [massCoordx, massCoordx]], y: [springy, [massCoordy, massCoordy]]});
 
   return;
 }
