@@ -168,24 +168,6 @@
                     </a>
                   </div>
                 </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="../assets/gifs/Lab_5.gif" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Lab Interactive 1.5</h5>
-                    <p class="card-text">Experimental Nyquist plot.</p>
-
-                  </div>
-                  <div class="card-footer">
-                    <button id="op5" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int5">
-                      <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-                    </button>
-                    
-                    <a class="btn btn-outline-secondary" href="../Widgets/Lab-ExperimentalNyquist/main.html" target="_blank" role="button">
-                      <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-                    </a>
-                  </div>
-                </div>
                 
               </div>
           </div>
@@ -295,30 +277,6 @@
       </div>
     </div>
 
-    <div id="int5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl" style="height: 85%">
-        <div class="modal-content modal-tall">
-
-          <div class="btn-group" role="group" aria-label="Panel 1">
-            <a class="btn btn-outline-secondary" href="../Widgets/Lab-ExperimentalNyquist/main.html" target="_blank" role="button">
-              <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
-            </a>
-            <button type="button" class="btn btn-outline-secondary" id="btn5">
-              <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
-            </button>
-            <button type="button" class="btn btn-outline-secondary" id="btn_zo5">
-              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
-            </button>
-            <button type="button" class="btn btn-outline-secondary" id="btn_zi5">
-              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
-            </button>
-          </div>
-
-          <iframe data-src="../Widgets/Lab-ExperimentalNyquist/main.html" height=500px id="if5"></iframe> 
-        </div>
-      </div>
-    </div>
-
     
 
     <!-- Optional JavaScript -->
@@ -353,11 +311,6 @@
       } 
       btn4.onclick = reload4; 
 
-      function reload5() { 
-          document.getElementById('if5').src += '';
-          zoom5 = 1;
-      } 
-      btn5.onclick = reload5;
 
       function open1() {
         if(!document.getElementById('if1').src) {
@@ -386,13 +339,6 @@
         }
       }
       op4.onclick = open4;
-
-      function open5() {
-        if(!document.getElementById('if5').src) {
-          document.getElementById('if5').src = document.getElementById('if5').dataset.src;
-        }
-      }
-      op5.onclick = open5;
 
     </script>
 
@@ -521,38 +467,6 @@
       document.getElementById('if4').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom4;
     }
     btn_zi4.onclick = zoomin4;
-    
-  </script>
-
-<script class = "zoom-buttons" id = "zb5">
-
-  var zoom5 = 1;
-
-    function zoomout5() {
-
-      var iframe = document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0];
-
-      if (!iframe.style.zoom){
-        iframe.style.zoom = 5;
-      }
-      
-      zoom5 *= 0.8;
-      document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom5;
-    }
-    btn_zo5.onclick = zoomout5;
-
-    function zoomin5() {
-
-      var iframe = document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0];
-
-      if (!iframe.style.zoom){
-        iframe.style.zoom = 5;
-      }
-      
-      zoom5 *= 1.2;
-      document.getElementById('if5').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom5;
-    }
-    btn_zi5.onclick = zoomin5;
     
   </script>
 
