@@ -59,11 +59,11 @@ for (var i = 0;  i < n; i++) {
     wc[i] = w[i]*c;
     delta[i] = Math.pow(alfa[i], 2) + Math.pow(wc[i],2);
     din[i] = alfa[i]*R/(delta[i]);
-    dout[i] = wc[i]*R/(delta[i]);
-    vin[i]=w[i]*dout[i];
-    vout[i]=-w[i]*din[i];
-    ain[i]=w[i]*vout[i];
-    aout[i]=-w[i]*vin[i];
+    dout[i] = -wc[i]*R/(delta[i]);
+    vin[i]=-w[i]*dout[i];
+    vout[i]=w[i]*din[i];
+    ain[i]=-w[i]*vout[i];
+    aout[i]=w[i]*vin[i];
 
     dampl[i]=Math.sqrt(Math.pow(din[i], 2) + Math.pow(dout[i], 2));
     phased[i]=Math.atan2(dout[i], din[i]);
