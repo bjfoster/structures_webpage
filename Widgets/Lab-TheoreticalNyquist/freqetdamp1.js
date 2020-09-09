@@ -22,8 +22,12 @@ let ain=[],aout=[],dampl=[],phased=[],vampl=[],phasev=[],aampl=[],phasea=[];
 
 
 let trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9;
+let trace10,trace11,trace12,trace13,trace14,trace15;
 let data1,data2,data3;
+let data4,data5,data6;
 let layout1,layout2,layout3;
+let layout4,layout5,layout6;
+
 const cDisp = 'rgb(0, 128, 255)', cVel='rgb(255, 128, 0)', cAcc='rgb(77, 172, 0)';
 
 
@@ -69,10 +73,10 @@ for (var i = 0;  i < n; i++) {
     phased[i]=Math.atan2(dout[i], din[i]);
 
     vampl[i]=Math.sqrt(Math.pow(vin[i], 2) + Math.pow(vout[i], 2));
-    phasev[i]=Math.atan2(vout[i], vin[i]);
+    phasev[i]=Math.atan2(vout[i], vin[i]) - math.pi;
 
     aampl[i]=Math.sqrt(Math.pow(ain[i], 2) + Math.pow(aout[i], 2));
-    phasea[i]=Math.atan2(aout[i], ain[i]);
+    phasea[i]=Math.atan2(aout[i], ain[i]) - 2*math.pi;
     }
 };
 
@@ -107,7 +111,7 @@ function setTraces(){
 
   trace4 = {
     x: din,
-    y: dout,
+    y: math.dotMultiply(dout, -1),
     name: 'Displacement',
     type: 'scatter',
     mode: 'lines',
@@ -115,7 +119,7 @@ function setTraces(){
   };
   trace5 = {
     x: vin,
-    y: vout,
+    y: math.dotMultiply(vout, -1),
     name: 'Velocity',
     type: 'scatter',
     mode: 'lines',
@@ -123,7 +127,7 @@ function setTraces(){
   };
   trace6 = {
     x: ain,
-    y: aout,
+    y: math.dotMultiply(aout, -1),
     name: 'Acceleration',
     type: 'scatter',
     mode: 'lines',
@@ -132,7 +136,7 @@ function setTraces(){
 
   trace7 = {
     x: w,
-    y: phased,
+    y: math.dotMultiply(phased, -1),
     name: 'Displacement',
     type: 'scatter',
     mode: 'lines',
@@ -140,7 +144,7 @@ function setTraces(){
     };
   trace8 = {
     x: w,
-    y: phasev,
+    y: math.dotMultiply(phasev, -1),
     name: 'Velocity',
     type: 'scatter',
     mode: 'lines',
@@ -148,11 +152,63 @@ function setTraces(){
     };
   trace9 = {
     x: w,
-    y: phasea,
+    y: math.dotMultiply(phasea, -1),
     name: 'Acceleration',
     type: 'scatter',
     mode: 'lines',
     marker:{color: cAcc}
+  };
+
+  trace10 = {
+    x: w,
+    y: din,
+    name: 'Displacement In-phase',
+    type: 'scatter',
+    mode: 'lines',
+    marker:{color: cDisp}
+  };
+  trace11 = {
+    x: w,
+    y: math.dotMultiply(dout, -1),
+    name: 'Displacement Out-phase',
+    type: 'scatter',
+    mode: 'lines',
+    marker:{color: cDisp},
+    line: {dash: 'dot'}
+  };
+  trace12 = {
+    x: w,
+    y: vin,
+    name: 'Velocity In-phase',
+    type: 'scatter',
+    mode: 'lines',
+    marker:{color: cVel}
+  };
+  trace13 = {
+    x: w,
+    y: math.dotMultiply(vout, -1),
+    name: 'Velocity Out-phase',
+    type: 'scatter',
+    mode: 'lines',
+    marker:{color: cVel},
+    line: {dash: 'dot'}
+  };
+  trace14 = {
+    x: w,
+    y: ain,
+    name: 'In phase',
+    type: 'scatter',
+    mode: 'lines',
+    marker:{color: cAcc},
+  };
+  trace15 = {
+    x: w,
+    y: math.dotMultiply(aout, -1),
+    name: 'Out of phase',
+    type: 'scatter',
+    mode: 'lines',
+    marker:{color: cAcc},
+    line: {dash: 'dot'}
   };
 
 
@@ -160,6 +216,10 @@ function setTraces(){
   data1 = [trace1, trace2, trace3];
   data2 = [trace4, trace5, trace6];
   data3 = [trace7, trace8, trace9];
+
+  data4 = [trace10, trace11];
+  data5 = [trace12, trace13];
+  data6 = [trace14, trace15];
 
   layout1= {
     plot_bgcolor:"#F4F4F4",
@@ -210,6 +270,59 @@ layout3= {
 
 };
 
+layout4= {
+  plot_bgcolor:"#F4F4F4",
+  paper_bgcolor:"#F4F4F4",
+  autosize: true,
+  margin:{
+      l:50, r:10, b:45, t:10
+  },
+  legend: {x: 50, y: 1, orientation: "v"
+  },
+  showlegend: false,
+  xaxis:{title:'Frequency (rad/s)'},
+  yaxis:{title:'Displacement Component'},
+  font: {
+      family: "Fira Sans", size:12
+  }
+
+};
+
+layout5= {
+  plot_bgcolor:"#F4F4F4",
+  paper_bgcolor:"#F4F4F4",
+  autosize: true,
+  margin:{
+      l:50, r:10, b:45, t:10
+  },
+  legend: {x: 50, y: 1, orientation: "v"
+  },
+  showlegend: false,
+  xaxis:{title:'Frequency (rad/s)'},
+  yaxis:{title:'Velocity Component'},
+  font: {
+      family: "Fira Sans", size:12
+  }
+
+};
+
+layout6= {
+  plot_bgcolor:"#F4F4F4",
+  paper_bgcolor:"#F4F4F4",
+  autosize: true,
+  margin:{
+      l:50, r:10, b:45, t:10
+  },
+  legend: {x: 50, y: 1, orientation: "v"
+  },
+  xaxis:{title:'Frequency (rad/s)'},
+  yaxis:{title:'Acceleration Component'},
+  font: {
+      family: "Fira Sans", size:12
+  }
+
+};
+
 }
 
 // generate the data that is used to create the plots
@@ -225,6 +338,10 @@ function initPlot() {
         animate_shorthand(data1,'graph1')
         animate_shorthand(data2,'graph2')
         animate_shorthand(data3,'graph3')
+
+        animate_shorthand(data4,'graph4')
+        animate_shorthand(data5,'graph5')
+        animate_shorthand(data6,'graph6')
 }
 
 // create an empty plot that is displayed when the page is loaded. Default values are used
@@ -249,6 +366,12 @@ function emptyPlot(){
             //phase vs frequency
 
             Plotly.newPlot('graph3', data3, layout3, {displayModeBar:false});
+
+            Plotly.newPlot('graph4', data4, layout4, {displayModeBar:false});
+
+            Plotly.newPlot('graph5', data5, layout5, {displayModeBar:false});
+
+            Plotly.newPlot('graph6', data6, layout6, {displayModeBar:false});
 };
 
 // function that makes the sliders nice
