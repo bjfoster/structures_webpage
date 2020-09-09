@@ -111,7 +111,7 @@ function setTraces(){
 
   trace4 = {
     x: din,
-    y: math.dotMultiply(dout, -1),
+    y: dout,
     name: 'Displacement',
     type: 'scatter',
     mode: 'lines',
@@ -119,7 +119,7 @@ function setTraces(){
   };
   trace5 = {
     x: vin,
-    y: math.dotMultiply(vout, -1),
+    y: vout,
     name: 'Velocity',
     type: 'scatter',
     mode: 'lines',
@@ -127,7 +127,7 @@ function setTraces(){
   };
   trace6 = {
     x: ain,
-    y: math.dotMultiply(aout, -1),
+    y: aout,
     name: 'Acceleration',
     type: 'scatter',
     mode: 'lines',
@@ -136,7 +136,7 @@ function setTraces(){
 
   trace7 = {
     x: w,
-    y: math.dotMultiply(phased, 1),
+    y: phased,
     name: 'Displacement',
     type: 'scatter',
     mode: 'lines',
@@ -144,7 +144,7 @@ function setTraces(){
     };
   trace8 = {
     x: w,
-    y: math.dotMultiply(phasev, 1),
+    y: phasev,
     name: 'Velocity',
     type: 'scatter',
     mode: 'lines',
@@ -152,7 +152,7 @@ function setTraces(){
     };
   trace9 = {
     x: w,
-    y: math.dotMultiply(phasea, 1),
+    y: phasea,
     name: 'Acceleration',
     type: 'scatter',
     mode: 'lines',
@@ -169,7 +169,7 @@ function setTraces(){
   };
   trace11 = {
     x: w,
-    y: math.dotMultiply(dout, -1),
+    y: dout,
     name: 'Displacement Out-phase',
     type: 'scatter',
     mode: 'lines',
@@ -186,7 +186,7 @@ function setTraces(){
   };
   trace13 = {
     x: w,
-    y: math.dotMultiply(vout, -1),
+    y: vout,
     name: 'Velocity Out-phase',
     type: 'scatter',
     mode: 'lines',
@@ -203,7 +203,7 @@ function setTraces(){
   };
   trace15 = {
     x: w,
-    y: math.dotMultiply(aout, -1),
+    y: aout,
     name: 'Out of phase',
     type: 'scatter',
     mode: 'lines',
