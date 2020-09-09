@@ -73,10 +73,10 @@ for (var i = 0;  i < n; i++) {
     phased[i]=Math.atan2(dout[i], din[i]);
 
     vampl[i]=Math.sqrt(Math.pow(vin[i], 2) + Math.pow(vout[i], 2));
-    phasev[i]=Math.atan2(vout[i], vin[i]) - math.pi;
+    phasev[i]=Math.atan2(vout[i], vin[i]);
 
     aampl[i]=Math.sqrt(Math.pow(ain[i], 2) + Math.pow(aout[i], 2));
-    phasea[i]=Math.atan2(aout[i], ain[i]) - 2*math.pi;
+    phasea[i]=Math.atan2(aout[i], ain[i]);
     }
 };
 
@@ -136,7 +136,7 @@ function setTraces(){
 
   trace7 = {
     x: w,
-    y: math.dotMultiply(phased, -1),
+    y: math.dotMultiply(phased, 1),
     name: 'Displacement',
     type: 'scatter',
     mode: 'lines',
@@ -144,7 +144,7 @@ function setTraces(){
     };
   trace8 = {
     x: w,
-    y: math.dotMultiply(phasev, -1),
+    y: math.dotMultiply(phasev, 1),
     name: 'Velocity',
     type: 'scatter',
     mode: 'lines',
@@ -152,7 +152,7 @@ function setTraces(){
     };
   trace9 = {
     x: w,
-    y: math.dotMultiply(phasea, -1),
+    y: math.dotMultiply(phasea, 1),
     name: 'Acceleration',
     type: 'scatter',
     mode: 'lines',
