@@ -113,14 +113,32 @@
                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 
                 <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="../assets/gifs/L9_1.gif" alt="Card image cap">
+                  <img class="card-img-top" src="../assets/gifs/Lab_4.gif" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">Interactive 9.1</h5>
-                    <p class="card-text">Forced response of double spring mass system.</p>
+                    <p class="card-text">Theoretical Nyquist plot.</p>
 
                   </div>
                   <div class="card-footer">
                     <button id="op1" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int1">
+                      <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </button>
+                    
+                    <a class="btn btn-outline-secondary" href="../Widgets/Lab-TheoreticalNyquist/main.html" target="_blank" role="button">
+                      <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/gifs/L9_2.gif" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Interactive 9.2</h5>
+                    <p class="card-text">Forced response of double spring mass system.</p>
+
+                  </div>
+                  <div class="card-footer">
+                    <button id="op2" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#int2">
                       <img src="../assets/icons/arrows-fullscreen.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
                     </button>
                     
@@ -142,12 +160,13 @@
     <!-- /#wrapper -->
 
     <!-- Modals -->
+
     <div id="int1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content modal-tall">
 
           <div class="btn-group" role="group" aria-label="Panel 1">
-            <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Forced2dof/main.html" target="_blank" role="button">
+            <a class="btn btn-outline-secondary" href="../Widgets/Lab-TheoreticalNyquist/main.html" target="_blank" role="button">
               <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
             </a>
             <button type="button" class="btn btn-outline-secondary" id="btn1">
@@ -159,10 +178,34 @@
             <button type="button" class="btn btn-outline-secondary" id="btn_zi1">
               <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
             </button>
+          </div>
+
+          <iframe data-src="../Widgets/Lab-TheoreticalNyquist/main.html" height=500px id="if1"></iframe> 
+        </div>
+      </div>
+    </div>
+
+    <div id="int2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content modal-tall">
+
+          <div class="btn-group" role="group" aria-label="Panel 1">
+            <a class="btn btn-outline-secondary" href="../Widgets/Dyn-Forced2dof/main.html" target="_blank" role="button">
+              <img src="../assets/icons/box-arrow-up-right.svg" alt="Fullscreen" width="32" height="32" title="fullscr">
+            </a>
+            <button type="button" class="btn btn-outline-secondary" id="btn2">
+              <img src="../assets/icons/arrow-counterclockwise.svg" alt="Refresh" width="32" height="32" title="refresh">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zo2">
+              <img src="../assets/icons/zoom-out.svg" alt="Refresh" width="32" height="32" title="zoomout">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_zi2">
+              <img src="../assets/icons/zoom-in.svg" alt="Refresh" width="32" height="32" title="zoomin">
+            </button>
 
           </div>
 
-          <iframe data-src="../Widgets/Dyn-Forced2dof/main.html" height=500px id="if1"></iframe> 
+          <iframe data-src="../Widgets/Dyn-Forced2dof/main.html" height=500px id="if2"></iframe> 
         </div>
       </div>
     </div>
@@ -187,6 +230,19 @@
         }
       }
       op1.onclick = open1;
+
+      function reload2() { 
+          document.getElementById('if2').src += '';
+          zoom2 = 1;
+      } 
+      btn2.onclick = reload2;
+
+      function open2() {
+        if(!document.getElementById('if2').src) {
+          document.getElementById('if2').src = document.getElementById('if2').dataset.src;
+        }
+      }
+      op2.onclick = open2;
 
     </script>
 
@@ -221,6 +277,38 @@
     btn_zi1.onclick = zoomin1;
     
   </script>
+
+<script class = "zoom-buttons" id = "zb2">
+
+  var zoom2 = 1;
+
+  function zoomout2() {
+
+    var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
+
+    if (!iframe.style.zoom){
+      iframe.style.zoom = 1;
+    }
+    
+    zoom2 *= 0.8;
+    document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom2;
+  }
+  btn_zo2.onclick = zoomout2;
+
+  function zoomin2() {
+
+    var iframe = document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0];
+
+    if (!iframe.style.zoom){
+      iframe.style.zoom = 1;
+    }
+
+    zoom2 *= 1.2;
+    document.getElementById('if2').contentWindow.document.getElementsByTagName("body")[0].style.zoom = zoom2;
+  }
+  btn_zi2.onclick = zoomin2;
+  
+</script>
 
   </body>
 </html>
